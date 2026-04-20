@@ -7,16 +7,16 @@ type SectionTitleProps = {
   extra?: ReactNode;
 };
 
-export function SectionTitle({ title, subtitle, extra }: SectionTitleProps) {
+export const SectionTitle = ({ title, subtitle, extra }: SectionTitleProps) => {
   return (
-    <Space direction="vertical" size={4} style={{ width: '100%' }}>
-      <Space align="start" style={{ width: '100%', justifyContent: 'space-between' }}>
-        <Typography.Title level={2} style={{ margin: 0 }}>
+    <Space direction="vertical" size={4} className="section-title">
+      <Space align="start" className="section-title__header">
+        <Typography.Title level={2} className="section-title__text">
           {title}
         </Typography.Title>
         {extra}
       </Space>
-      {subtitle ? <Typography.Text type="secondary">{subtitle}</Typography.Text> : null}
+      {subtitle ? <Typography.Text className="section-title__subtitle">{subtitle}</Typography.Text> : null}
     </Space>
   );
-}
+};
