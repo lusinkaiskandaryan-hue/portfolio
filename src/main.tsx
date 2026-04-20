@@ -9,10 +9,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ConfigProvider
       theme={{
-        algorithm: theme.defaultAlgorithm,
+        algorithm: theme.darkAlgorithm,
         token: {
-          colorPrimary: '#1677ff',
-          borderRadius: 10,
+          colorPrimary: '#7af5cf',
+          colorBgBase: '#050d2a',
+          colorTextBase: '#d7e1ff',
+          borderRadius: 16,
           fontFamily:
             'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
         },

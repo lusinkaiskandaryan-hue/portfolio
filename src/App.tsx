@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { PortfolioLayout } from './layout/PortfolioLayout';
-import { ContactPage } from './pages/ContactPage';
-import { HomePage } from './pages/HomePage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { ProjectsPage } from './pages/ProjectsPage';
+import { ContactPage } from './pages/Contact';
+import { HomePage } from './pages/Home';
+import { NotFoundPage } from './pages/NotFound';
+import { ProjectsPage } from './pages/Projects';
 
-function App() {
+const App = () => {
   return (
     <Routes>
       <Route element={<PortfolioLayout />}>
@@ -17,6 +17,6 @@ function App() {
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
-}
+};
 
 export default App;

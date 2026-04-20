@@ -1,0 +1,28 @@
+---
+description: Core coding standards for this React + TypeScript project
+alwaysApply: true
+---
+
+# Project Coding Standards
+
+- Use strict TypeScript. Avoid `any`, unsafe casts, and loose typing.
+- Never use `eslint-disable` or `eslint-disable-next-line`; fix the root issue instead.
+- Do not use inline styles in JSX/TSX (`style={{ ... }}` is not allowed).
+- Keep components and functions small, readable, and focused on one job.
+- Reuse existing project patterns before introducing new abstractions.
+- Handle loading, empty, and error states for user-facing async flows.
+- Do not introduce breaking API or behavior changes without calling them out.
+- Keep dependencies minimal; use existing packages unless a new one is justified.
+- Add or update tests for behavior changes when test infrastructure exists.
+- Follow existing linting and formatting rules; leave touched files cleaner.
+
+## Implementation Notes
+
+- For React code, prefer functional components and hooks.
+- Each component must live in its own folder named after the component.
+- Each component folder should include `index.tsx` as the component entry file.
+- Place styles in a dedicated `styles` file/module.
+- Place constants in a dedicated `consts` file/module.
+- Place helper functions in a dedicated `utils` file/module.
+- For routing or page-level changes, preserve current navigation behavior.
+- For refactors, keep behavior identical unless explicitly requested otherwise.
