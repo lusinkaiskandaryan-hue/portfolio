@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { PortfolioLayout } from './layout/PortfolioLayout';
+import { PortfolioLayout } from './layout/Portfolio';
 import { ContactPage } from './pages/Contact';
 import { HomePage } from './pages/Home';
 import { NotFoundPage } from './pages/NotFound';

@@ -1,0 +1,9 @@
+export const appLayoutClassName = 'app-layout';
+export const appHeaderClassName = 'app-header';
+export const brandTitleClassName = 'brand-title';
+export const headerActionsClassName = 'header-actions';
+export const navMenuClassName = 'nav-menu';
+export const headerDownloadClassName = 'header-download';
+export const appContentClassName = 'app-content';
+export const pageShellClassName = 'page-shell';
+export const appFooterClassName = 'app-footer';
