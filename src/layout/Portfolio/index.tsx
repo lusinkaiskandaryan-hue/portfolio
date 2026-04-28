@@ -18,7 +18,7 @@ import {
   navMenuClassName,
   pageShellClassName,
 } from './styles';
-import { getFooterText, getSelectedMenuKey } from './utils';
+import { getFooterText } from './utils';
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,7 +35,7 @@ export const PortfolioLayout = () => {
         <div className={headerActionsClassName}>
           <Menu
             mode="horizontal"
-            selectedKeys={[getSelectedMenuKey(location.pathname, location.hash)]}
+            selectedKeys={[location.pathname]}
             items={NAV_ITEMS}
             onClick={({ key }) => navigate(key)}
             className={navMenuClassName}

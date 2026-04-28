@@ -1,4 +1,10 @@
-import { Card, Col, Progress, Row, Space, Typography } from 'antd';
+import { Card, Col, Progress, Row, Typography } from 'antd';
+import {
+  EXPERIENCES,
+  EXPERIENCE_SIDE_LABEL,
+  EXPERIENCE_TITLE,
+} from '../../components/ExperienceSection/consts';
+import { ExperienceSection } from '../../components/ExperienceSection';
 import {
   CONTACT_EMAIL_LABEL,
   CONTACT_EMAIL_VALUE,
@@ -9,9 +15,6 @@ import {
   EDUCATION_PERIOD,
   EDUCATION_SCHOOL,
   EDUCATION_TITLE,
-  EXPERIENCE_SIDE_LABEL,
-  EXPERIENCE_TITLE,
-  EXPERIENCES,
   EXPERTISE_ITEMS,
   EXPERTISE_SUBTITLE,
   EXPERTISE_TITLE,
@@ -32,8 +35,11 @@ import {
 } from './consts';
 import { homePageClassName, profileAvatarClassName } from './styles';
 import { formatExpertisePercent, mapSkillToTagKey } from './utils';
+import { getAboutMe } from './CVText/cvText';
 
 export const HomePage = () => {
+  const aboutMe = getAboutMe();
+  console.log('aboutMe', aboutMe);
   return (
     <div className={homePageClassName}>
       <div className="home-page__grid">
@@ -101,42 +107,28 @@ export const HomePage = () => {
                 {HERO_TITLE_PREFIX} <span className="home-hero__title--accent">{HERO_TITLE_EMPHASIS}</span>
               </Typography.Title>
             </div>
-            <Typography.Paragraph className="home-hero__body">{HERO_BODY}</Typography.Paragraph>
-            <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
-              {HERO_BODY_SECONDARY}
-            </Typography.Paragraph>
-            <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
-              {HERO_BODY_TERTIARY}
-            </Typography.Paragraph>
+            {!aboutMe ? <>
+              <Typography.Paragraph className="home-hero__body">{aboutMe}</Typography.Paragraph>
+              <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
+                {HERO_BODY_SECONDARY}
+              </Typography.Paragraph>
+              <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
+                {HERO_BODY_TERTIARY}
+              </Typography.Paragraph>
+            </> : <>
+              <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
+                {aboutMe}
+              </Typography.Paragraph>
+            </>   
+            }
           </Card>
 
-          <Card id="experience" className="home-card home-card--experience">
-            <div className="home-section-head">
-              <Typography.Title level={3} className="home-section-head__title">
-                {EXPERIENCE_TITLE}
-              </Typography.Title>
-              <Typography.Text className="home-section-head__meta">{EXPERIENCE_SIDE_LABEL}</Typography.Text>
-            </div>
-            <Space direction="vertical" size={20} className="home-full-width">
-              {EXPERIENCES.map((item) => (
-                <div className="home-experience" key={item.role}>
-                  <div className="home-experience__head">
-                    <Typography.Title level={5} className="home-experience__role">
-                      {item.role}
-                    </Typography.Title>
-                    <Typography.Text className="home-experience__period">{item.period}</Typography.Text>
-                  </div>
-                  <Typography.Text className="home-experience__company">{item.company}</Typography.Text>
-                  <Typography.Paragraph className="home-experience__summary">
-                    {item.summary}
-                  </Typography.Paragraph>
-                  <Typography.Text className="home-experience__tags">
-                    {item.tags.join('  •  ')}
-                  </Typography.Text>
-                </div>
-              ))}
-            </Space>
-          </Card>
+          <ExperienceSection
+            cardId="experience"
+            title={EXPERIENCE_TITLE}
+            sideLabel={EXPERIENCE_SIDE_LABEL}
+            items={EXPERIENCES}
+          />
 
           <Card id="expertise" className="home-card home-card--expertise">
             <Typography.Title level={3} className="home-card__heading">
