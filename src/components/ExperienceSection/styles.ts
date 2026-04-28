@@ -1,0 +1,12 @@
+export const experienceCardClassName = 'home-card home-card--experience';
+export const experienceSectionHeadClassName = 'home-section-head';
+export const experienceSectionTitleClassName = 'home-section-head__title';
+export const experienceSectionMetaClassName = 'home-section-head__meta';
+export const experienceListClassName = 'home-full-width';
+export const experienceItemClassName = 'home-experience';
+export const experienceHeadClassName = 'home-experience__head';
+export const experienceRoleClassName = 'home-experience__role';
+export const experiencePeriodClassName = 'home-experience__period';
+export const experienceCompanyClassName = 'home-experience__company';
+export const experienceSummaryClassName = 'home-experience__summary';
+export const experienceTagsClassName = 'home-experience__tags';

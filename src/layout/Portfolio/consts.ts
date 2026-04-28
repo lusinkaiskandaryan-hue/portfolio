@@ -15,8 +15,9 @@ export const FOOTER_TEXT = 'The Digital Curator. Crafted with React and TypeScri
 
 export const NAV_ITEMS: NavItem[] = [
   { key: '/home', label: 'Home' },
-  { key: '/home#experience', label: 'Experience' },
-  { key: '/home#expertise', label: 'Expertise' },
-  { key: '/home#education', label: 'Education' },
-  { key: '/home#contact', label: 'Contact' },
+  { key: '/gemini', label: 'Gemini' },
+  { key: '/experience', label: 'Experience' },
+  // { key: '/expertise', label: 'Expertise' },
+  // { key: '/education', label: 'Education' },
+  { key: '/contact', label: 'Contact' },
 ];
