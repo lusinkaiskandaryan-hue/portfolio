@@ -19,15 +19,18 @@ import {
   pageShellClassName,
 } from './styles';
 import { getFooterText } from './utils';
+import { useNotification } from '../../utils/notifications';
 
 const { Header, Content, Footer } = Layout;
 
 export const PortfolioLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { contextHolder } = useNotification();
 
   return (
     <Layout className={appLayoutClassName}>
+      {contextHolder}
       <Header className={appHeaderClassName}>
         <Typography.Title level={4} className={brandTitleClassName}>
           {BRAND_TITLE}

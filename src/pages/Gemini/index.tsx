@@ -7,8 +7,6 @@ import {
   MESSAGE_PLACEHOLDER,
   MESSAGE_RULES,
   SECTION_TITLE,
-  SKILLS_RULES,
-  SKILLS_PLACEHOLDER,
   SUBMIT_BUTTON_TEXT,
   type CVContentForm,
 } from './CVContentForm';
@@ -17,38 +15,30 @@ import { handleMessageSubmit } from './utils';
 import { useNotification } from '../../utils/notifications';
 
 export const GeminiPage = () => {
-  const { contextHolder, openNotificationWithIcon } = useNotification();
+  const { openNotificationWithIcon } = useNotification();
   const [form] = Form.useForm<CVContentForm>();
   const [message, setMessage] = useState<string>('');
   const html = markdown.toHTML(message);
 
   return (
     <>
-    {contextHolder}
-    <Space direction="vertical" size={24} className={pageContainerClassName}>
-      <SectionTitle title={SECTION_TITLE} />
-
-      <Card>
-        <Form form={form} layout="vertical" onFinish={(values) => handleMessageSubmit(values, form, setMessage, openNotificationWithIcon)}>
-          <Form.Item name="message" label="About you" rules={MESSAGE_RULES}>
-            <Input.TextArea rows={5} placeholder={MESSAGE_PLACEHOLDER} />
-          </Form.Item>
-
-          {/* <Form.Item name="skills" label="Skills" rules={SKILLS_RULES}>
-            <Input.TextArea rows={5} placeholder={SKILLS_PLACEHOLDER} />
-          </Form.Item> */}
-
-          <Button type="primary" htmlType="submit">
-            {SUBMIT_BUTTON_TEXT}
-          </Button>
-        </Form>
-      </Card>
-    </Space>
-    {message && 
-    <Typography.Paragraph className="home-hero__body">
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-     </Typography.Paragraph>}
-    </>
-    
+      <Space direction="vertical" size={24} className={pageContainerClassName}>
+        <SectionTitle title={SECTION_TITLE} />
+        <Card>
+          <Form form={form} layout="vertical" onFinish={(values) => handleMessageSubmit(values, form, setMessage, openNotificationWithIcon)}>
+            <Form.Item name="message" label="About you" rules={MESSAGE_RULES}>
+              <Input.TextArea rows={5} placeholder={MESSAGE_PLACEHOLDER} />
+            </Form.Item>
+            <Button type="primary" htmlType="submit">
+              {SUBMIT_BUTTON_TEXT}
+            </Button>
+          </Form>
+        </Card>
+      </Space>
+      {message && 
+      <Typography.Paragraph className="home-hero__body">
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Typography.Paragraph>}
+    </>    
   );
 };
