@@ -1,0 +1,51 @@
+---
+description: Standards for generating mock data, unit test factories, and API mocks
+globs: **/*.test.{ts,js,tsx,jsx}, **/*.spec.{ts,js,tsx,jsx}, **/mocks/**, **/factories/**
+alwaysApply: true
+---
+
+# Mock Data Standards
+
+This rule ensures all mock data generated for this project is consistent, type-safe, and realistic.
+
+## When to trigger
+Use `mock-data-skill` when the user:
+
+- asks for mock data, fake data, or sample data
+- writes or edits:
+  - unit tests (test, spec files)
+  - API clients or fetch logic
+- defines or references:
+  - TypeScript interfaces or types
+  - data models or schemas
+- requests:
+  - API response examples
+  - JSON payloads
+
+  ## What to do
+- Generate realistic mock data using `mock-data-skill`
+- Infer schema from surrounding context
+- Match TypeScript types exactly (if available)
+- Return valid JSON only (no comments, no explanations)
+
+## Data quality rules
+- Use realistic values (names, emails, ids, timestamps)
+- Use ISO 8601 format for dates
+- Keep naming consistent with the schema
+- Include nested structures when needed
+
+## Scenario rules
+
+### Unit tests
+- Provide multiple variations:
+  - valid case
+  - edge case (null, empty, min/max)
+  - optional fields
+
+  ## Constraints
+- Do NOT explain the output
+- Do NOT include comments
+- Do NOT return anything except JSON
+- Do NOT invent unrelated fields
+
+
