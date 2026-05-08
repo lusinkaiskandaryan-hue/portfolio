@@ -1,9 +1,18 @@
 import type { FormInstance } from 'antd';
 
-import type { CVContentForm } from './CVContentForm';
 import { generateGeminiContent } from '../../api/gemini';
 import { setAboutMe } from '../Home/CVText/cvText';
+import type { CVContentForm } from './CVContentForm';
 import { buildMockGeminiResponse } from './mockData';
+
+export type ChatEntry = {
+  id: string;
+  question: string;
+  /** Set when the assistant reply is ready; `null` while the request is in flight. */
+  answer: string | null;
+};
+
+export type Chat = ChatEntry[];
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 

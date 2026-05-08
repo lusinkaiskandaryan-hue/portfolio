@@ -3,6 +3,7 @@ import { Button, Card, Form, Input, Space, Typography } from 'antd';
 import { markdown } from 'markdown';
 
 import { SectionTitle } from '../../components/SectionTitle';
+import { GeminiChatSection } from './ChatSection';
 import {
   MESSAGE_PLACEHOLDER,
   MESSAGE_RULES,
@@ -34,6 +35,7 @@ export const GeminiPage = () => {
             </Button>
           </Form>
         </Card>
+        <GeminiChatSection />
       </Space>
       {message && 
       <Typography.Paragraph className="home-hero__body">

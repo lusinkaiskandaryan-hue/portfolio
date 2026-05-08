@@ -1,7 +1,6 @@
 import { Button, Layout, Menu, Space, Typography } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
-  BRAND_TITLE,
   DOWNLOAD_BUTTON_TEXT,
   FOOTER_LINKS,
   FOOTER_TEXT,
@@ -12,7 +11,6 @@ import {
   appFooterClassName,
   appHeaderClassName,
   appLayoutClassName,
-  brandTitleClassName,
   headerActionsClassName,
   headerDownloadClassName,
   navMenuClassName,
@@ -32,9 +30,6 @@ export const PortfolioLayout = () => {
     <Layout className={appLayoutClassName}>
       {contextHolder}
       <Header className={appHeaderClassName}>
-        <Typography.Title level={4} className={brandTitleClassName}>
-          {BRAND_TITLE}
-        </Typography.Title>
         <div className={headerActionsClassName}>
           <Menu
             mode="horizontal"

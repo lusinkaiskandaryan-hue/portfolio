@@ -10,76 +10,76 @@ export type ProjectItem = {
   imageUrl: string;
 };
 
-export const PROFILE_NAME = 'Elena';
-export const PROFILE_ROLE = 'FRONT-END ARCHITECT';
+export const PROFILE_NAME = 'Lusine Iskandaryan';
+export const PROFILE_ROLE = 'SOFTWARE ENGINEER';
 export const PROFILE_INITIALS = 'EC';
 export const PROFILE_IMAGE_URL = '/images/profile-reference.png';
 
 export const PERSONAL_INFO = [
-  { label: 'Birth Year', value: '1990' },
-  { label: 'Psychology', value: 'Basic' },
-  { label: 'Work', value: '8 years' },
-  { label: 'School', value: 'Berlin' },
+  { label: 'Birth Year', value: '1985' },
+  { label: 'Education', value: 'Bachelor' },
+  { label: 'Work', value: '7 years' },
+  { label: 'School', value: 'N 4' },
 ] as const;
 
 export const SKILLS = [
-  'React.js',
+  'React',
+  'Redux',
+  'Axios',
   'TypeScript',
-  'Next.js',
-  'Tailwind CSS',
-  'Framer Motion',
-  'Redux Toolkit',
-  'GraphQL',
-  'Jest',
+  'Angular 2+',
+  'RxJS',
+  'NgRx',
+  'Ant Design',
+  'HTML5/CSS3',
+  'Figma',
+  'Git',
+  'Agile / Scrum',
+  'Cursor',
+  'Gemini',
+] as const;
+
+export const SOFT_SKILLS = [
+  'Teamwork',
+  'Communication',
+  'Problem-solving',
+  'Time management',
+  'Adaptability',
+  'Negotiation',
 ] as const;
 
 export const EDUCATION_TITLE = 'Education';
-export const EDUCATION_PERIOD = '2016 - 2020';
-export const EDUCATION_DEGREE = 'B.Sc. in Computer Science';
-export const EDUCATION_SCHOOL = 'University of Technology';
+export const EDUCATION_PERIOD = '2002 - 2006';
+export const EDUCATION_DEGREE = 'Microelectronics and Semiconductor Devices';
+export const EDUCATION_SCHOOL = 'National Polytechnic University of Armenia';
 
 export const CONTACT_TITLE = 'Contact';
 export const CONTACT_EMAIL_LABEL = 'mail';
-export const CONTACT_EMAIL_VALUE = 'elena@digital-curator.dev';
-export const CONTACT_LOCATION_LABEL = 'location_on';
-export const CONTACT_LOCATION_VALUE = 'Berlin, Germany';
+export const CONTACT_EMAIL_VALUE = 'lusine.iskandarian@gmail.com';
+export const CONTACT_LOCATION_LABEL = 'location';
+export const CONTACT_LOCATION_VALUE = 'Yerevan, Armenia';
+export const CONTACT_PHONE_LABEL = 'phone';
+export const CONTACT_PHONE_VALUE = '+374 95 91 20 30';
 
-export const HERO_TITLE_PREFIX = 'Crafting Scalable User Interfaces with';
-export const HERO_TITLE_EMPHASIS = 'Technical Precision.';
-export const HERO_BODY =
-  'As a Front-End Architect specializing in the React ecosystem, I bridge the gap between complex engineering and editorial design.';
+export const HERO_TITLE_PREFIX = 'Professional Bio.';
+export const HERO_BODY = 
+  'Experienced Front-End Engineer with 7 years of expertise in designing and developing modern web applications.';
 export const HERO_BODY_SECONDARY =
-  'My approach is rooted in the philosophy of "The Digital Curator" where every component is intentionally placed and every interaction is refined for clarity.';
+  'Skilled in React, Angular, TypeScript, and frontend architecture, with a strong passion for innovation and continuous improvement.';
 export const HERO_BODY_TERTIARY =
-  'With 5+ years of experience, I lead teams to build design systems that scale, ensuring performance is never sacrificed for aesthetics.';
+  'Adept at transforming complex requirements into intuitive, high-performance user experiences while contributing effectively within cross-functional teams.';
 
 export const EXPERTISE_TITLE = 'Technical Expertise';
-export const EXPERTISE_SUBTITLE = 'Quantifying the craft of interface architecture.';
 export const EXPERTISE_ITEMS: ExpertiseItem[] = [
-  { label: 'React Architecture', value: 95 },
-  { label: 'Performance Audit', value: 88 },
-  { label: 'TypeScript Logic', value: 92 },
+  { label: 'React', value: 90 },
+  { label: 'Angular', value: 95 },
+  { label: 'TypeScript', value: 92 },
   { label: 'State Management', value: 93 },
+  { label: 'Performance Audit', value: 88 },
+  { label: 'AI Integration (LLMs)', value: 2 },
 ];
 
 export const QUOTE_TITLE = 'Key Philosophy';
 export const QUOTE_TEXT =
   'Clean code is not just about functionality; it is about creating a sustainable and predictable environment that others can contribute to confidently.';
 
-export const PROJECTS_TITLE = 'Curated Projects';
-export const PROJECTS: ProjectItem[] = [
-  {
-    name: 'Aether Dashboard',
-    subtitle: 'Analytics platform for growth teams',
-    cta: 'View case study',
-    imageUrl:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Editorial UI Kit',
-    subtitle: 'Design system for content products',
-    cta: 'View case study',
-    imageUrl:
-      'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=900&q=80',
-  },
-];

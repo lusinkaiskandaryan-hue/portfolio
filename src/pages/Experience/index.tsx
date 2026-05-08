@@ -13,6 +13,7 @@ import {
   PAGE_TITLE,
   PROJECTS,
   REPOSITORY_TEXT,
+  PROJECTS_TITLE
 } from './consts';
 import { descriptionClassName, pageContainerClassName } from './styles';
 import { getProjectKey } from './utils';
@@ -50,6 +51,26 @@ export const ExperiencePage = () => {
           </Col>
         ))}
       </Row>
+
+      <Card className="projects-card">
+        <Typography.Title level={3} className="projects-card__heading">
+          {PROJECTS_TITLE}
+        </Typography.Title>
+        <Row gutter={[16, 16]}>
+          {PROJECTS.map((project) => (
+            <Col xs={24} md={12} key={project.name}>
+              <div className="projects-project">
+                <img src={project.imageUrl} alt={project.name} className="projects-project__thumb" />
+                <Typography.Title level={5} className="projects-project__name">
+                  {project.name}
+                </Typography.Title>
+                <Typography.Text className="projects-muted">{project.subtitle}</Typography.Text>
+                <Typography.Text className="projects-project__cta">{project.cta}</Typography.Text>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Card>
     </Space>
   );
 };

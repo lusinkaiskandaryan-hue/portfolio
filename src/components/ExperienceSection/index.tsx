@@ -1,4 +1,5 @@
 import { Card, Space, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 import type { ExperienceSectionProps } from './consts';
 import {
   experienceCardClassName,
@@ -12,7 +13,6 @@ import {
   experienceSectionMetaClassName,
   experienceSectionTitleClassName,
   experienceSummaryClassName,
-  experienceTagsClassName,
 } from './styles';
 import { getExperienceKey } from './utils';
 
@@ -23,7 +23,9 @@ export const ExperienceSection = ({ title, sideLabel, items, cardId }: Experienc
         <Typography.Title level={3} className={experienceSectionTitleClassName}>
           {title}
         </Typography.Title>
-        <Typography.Text className={experienceSectionMetaClassName}>{sideLabel}</Typography.Text>
+        <Link to="/experience" className={`${experienceSectionMetaClassName} home-section-head__meta-link`}>
+          {sideLabel}
+        </Link>
       </div>
       <Space direction="vertical" size={20} className={experienceListClassName}>
         {items.map((item) => (
@@ -36,7 +38,6 @@ export const ExperienceSection = ({ title, sideLabel, items, cardId }: Experienc
             </div>
             <Typography.Text className={experienceCompanyClassName}>{item.company}</Typography.Text>
             <Typography.Paragraph className={experienceSummaryClassName}>{item.summary}</Typography.Paragraph>
-            <Typography.Text className={experienceTagsClassName}>{item.tags.join('  •  ')}</Typography.Text>
           </div>
         ))}
       </Space>
