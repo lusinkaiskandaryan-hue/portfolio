@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  --sidebar-width: 260px;
+  --sidebar-width: 280px;
   --sidebar-gap: 14px;
   --bg-base: #030a1e;
   --bg-top: #08173f;
@@ -123,21 +123,32 @@ body {
 
 .app-footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 8px;
   padding-inline: clamp(16px, 3vw, 40px);
   background: rgba(4, 12, 32, 0.82);
   border-top: 1px solid var(--border-soft);
+  text-align: center;
 }
 
-.app-footer a,
 .app-footer .ant-typography {
   color: var(--text-muted);
+}
+
+.app-footer .ant-space {
+  justify-content: center;
 }
 
 .app-footer a {
   font-size: 10px;
   letter-spacing: 1.2px;
+  color: var(--text-primary);
+}
+
+.app-footer a:hover {
+  color: #9ce2c9 !important;
 }
 
 .section-title {
@@ -159,7 +170,7 @@ body {
 
 .home-page__grid {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 14px;
 }
 
@@ -170,14 +181,16 @@ body {
   gap: 14px;
 }
 
-.home-card {
+.home-card,
+.projects-card {
   border-radius: 16px !important;
   border: 1px solid var(--border-soft) !important;
   background: linear-gradient(165deg, var(--card-bg-start) 0%, var(--card-bg-end) 100%) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.home-card .ant-card-body {
+.home-card .ant-card-body,
+.projects-card .ant-card-body {
   padding: 16px !important;
 }
 
@@ -197,7 +210,6 @@ body {
   border: 1px solid var(--border-soft);
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(1) contrast(1.05);
 }
 
 .home-profile__name {
@@ -226,12 +238,12 @@ body {
 
 .home-meta__value {
   color: var(--text-primary) !important;
-  text-transform: lowercase;
 }
 
 .home-card__title,
-.home-card__heading {
-  margin: 0 0 10px 0 !important;
+.home-card__heading,
+.projects-card__heading {
+  margin: 0 0 20px 0 !important;
   color: var(--text-primary) !important;
 }
 
@@ -246,7 +258,7 @@ body {
 }
 
 .home-card__subtitle,
-.home-muted,
+.projects-muted,
 .home-contact__text,
 .home-hero__body,
 .home-experience__summary,
@@ -374,10 +386,20 @@ body {
 }
 
 .home-section-head__meta {
-  color: var(--text-muted) !important;
+  color: var(--text-primary) !important;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 10px;
+}
+
+.home-section-head__meta-link {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.home-section-head__meta-link:hover {
+  color: #9ce2c9 !important;
 }
 
 .home-full-width {
@@ -499,14 +521,14 @@ body {
   line-height: 1.45;
 }
 
-.home-project {
+.projects-project {
   border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 10px;
   background: rgba(14, 27, 63, 0.75);
 }
 
-.home-project__thumb {
+.projects-project__thumb {
   width: 100%;
   height: 104px;
   border-radius: 10px;
@@ -516,12 +538,12 @@ body {
   filter: saturate(0.45) contrast(0.95) brightness(0.8);
 }
 
-.home-project__name {
+.projects-project__name {
   margin: 0 0 3px 0 !important;
   color: var(--text-primary) !important;
 }
 
-.home-project__cta {
+.projects-project__cta {
   display: block;
   margin-top: 8px;
   color: var(--active-color) !important;
@@ -534,6 +556,254 @@ body {
 .cv-content-create-page,
 .projects-page {
   width: 100%;
+}
+
+/* Gemini page — AI assistant chat preview */
+.gemini-chat {
+  width: 100%;
+  padding: clamp(22px, 4vw, 36px);
+  border-radius: 22px;
+  border: 1px solid rgba(121, 142, 197, 0.35);
+  background: radial-gradient(120% 120% at 10% 0%, #111d33 0%, #0a0f1a 55%, #060a12 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.gemini-chat__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 200px);
+  gap: clamp(24px, 5vw, 52px);
+  align-items: center;
+}
+
+.gemini-chat__panel {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.gemini-chat__header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.gemini-chat__title {
+  margin: 0;
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #f1f5f9;
+  letter-spacing: -0.02em;
+}
+
+.gemini-chat__description {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #94a3b8;
+}
+
+.gemini-chat__thread {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: min(440px, 52vh);
+  padding-right: 6px;
+  overflow-y: auto;
+  scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+}
+
+.gemini-chat__exchange {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gemini-chat__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.gemini-chat__row--assistant {
+  padding-left: 4px;
+}
+
+.gemini-chat__avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #f8fafc;
+}
+
+.gemini-chat__avatar--user {
+  background: linear-gradient(145deg, #7d818b, #72757b);
+}
+
+.gemini-chat__avatar--assistant {
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid #9ce2c9;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.4);
+}
+
+.gemini-chat__avatar-twin {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.gemini-chat__bubble {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #f8fafc;
+}
+
+.gemini-chat__bubble--user {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.gemini-chat__bubble--assistant {
+  margin-left: 8px;
+  background: linear-gradient(165deg, rgba(30, 58, 95, 0.95) 0%, rgba(30, 41, 59, 0.98) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.gemini-chat__bubble--pending {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.gemini-chat__composer {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 10px 10px 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.gemini-chat__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #f1f5f9;
+  font-size: 15px;
+}
+
+.gemini-chat__input::placeholder {
+  color: #64748b;
+}
+
+.gemini-chat__input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.gemini-chat__send {
+  flex-shrink: 0;
+  width: 36px;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.12s ease;
+}
+
+.gemini-chat__send:not(:disabled):hover {
+  filter: brightness(1.06);
+}
+
+.gemini-chat__send:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.gemini-chat__send:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  filter: grayscale(0.15);
+}
+
+.gemini-chat__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gemini-chat__hero {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: drop-shadow(0 0 32px rgba(59, 130, 246, 0.25));
+  transform: scale(1);
+  transform-origin: center center;
+}
+
+@keyframes gemini-chat-hero-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.gemini-chat__hero--loading {
+  animation: gemini-chat-hero-breathe 2.35s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gemini-chat__hero--loading {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .gemini-chat__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gemini-chat__visual {
+    order: -1;
+  }
+
+  .gemini-chat__hero {
+    max-width: 240px;
+    margin-inline: auto;
+  }
 }
 
 .projects-page__description {

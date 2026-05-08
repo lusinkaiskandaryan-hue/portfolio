@@ -3,7 +3,6 @@ export type ExperienceItem = {
   company: string;
   period: string;
   summary: string;
-  tags: string[];
 };
 
 export type ExperienceSectionProps = {
@@ -19,18 +18,16 @@ export const EXPERIENCE_SIDE_LABEL = 'Detailed History';
 export const EXPERIENCES: ExperienceItem[] = [
   {
     role: 'Senior Front-End Engineer',
-    company: 'Nexus Flow Systems',
-    period: '2021 - PRESENT',
+    company: 'Swiftech',
+    period: '2025 - PRESENT',
     summary:
-      'Leading the migration of a legacy monolithic dashboard to a modern micro-frontend architecture using Next.js and Module Federation.',
-    tags: ['Architecture', 'Team Leadership', 'Design Ops'],
+      'Delivering high-performance complex web applications with real-time data streaming and state management using React, Redux, TypeScript, Socket.IO, Ant Design.',
   },
   {
-    role: 'React Developer',
-    company: 'Lumina Creative Agency',
-    period: '2018 - 2021',
+    role: 'Front-End Engineer',
+    company: 'VOLO',
+    period: '2019 - 2025',
     summary:
-      'Delivered high-performance landing pages and complex web applications, with strong focus on interactive brand storytelling.',
-    tags: ['Animation', 'E-commerce', 'Client Focus'],
+      'Delivered high-performance web applications, wrote Clean, Maintainable Code, worked with juniors and interns.',
   },
 ];

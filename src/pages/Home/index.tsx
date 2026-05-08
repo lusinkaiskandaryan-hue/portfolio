@@ -5,32 +5,33 @@ import {
   EXPERIENCE_TITLE,
 } from '../../components/ExperienceSection/consts';
 import { ExperienceSection } from '../../components/ExperienceSection';
+import { GeminiChatSection } from '../Gemini/ChatSection';
 import {
   CONTACT_EMAIL_LABEL,
   CONTACT_EMAIL_VALUE,
   CONTACT_LOCATION_LABEL,
   CONTACT_LOCATION_VALUE,
+  CONTACT_PHONE_LABEL,
+  CONTACT_PHONE_VALUE,
   CONTACT_TITLE,
   EDUCATION_DEGREE,
   EDUCATION_PERIOD,
   EDUCATION_SCHOOL,
   EDUCATION_TITLE,
   EXPERTISE_ITEMS,
-  EXPERTISE_SUBTITLE,
   EXPERTISE_TITLE,
+  HERO_BODY,
   HERO_BODY_SECONDARY,
   HERO_BODY_TERTIARY,
-  HERO_TITLE_EMPHASIS,
   HERO_TITLE_PREFIX,
   PERSONAL_INFO,
   PROFILE_IMAGE_URL,
   PROFILE_NAME,
   PROFILE_ROLE,
-  PROJECTS,
-  PROJECTS_TITLE,
   QUOTE_TEXT,
   QUOTE_TITLE,
   SKILLS,
+  SOFT_SKILLS
 } from './consts';
 import { homePageClassName, profileAvatarClassName } from './styles';
 import { formatExpertisePercent, mapSkillToTagKey } from './utils';
@@ -73,6 +74,19 @@ export const HomePage = () => {
             </div>
           </Card>
 
+          <Card id="softSkills" className="home-card home-sidebar-section">
+            <Typography.Title level={5} className="home-card__title">
+              <span className="home-card__title-mark" aria-hidden="true" /> Soft Skills
+            </Typography.Title>
+            <div className="home-skill-grid">
+              {SOFT_SKILLS.map((softSkill) => (
+                <Typography.Text key={mapSkillToTagKey(softSkill)} className="home-skill-item">
+                  {softSkill}
+                </Typography.Text>
+              ))}
+            </div>
+          </Card>
+
           <Card id="education" className="home-card home-sidebar-section">
             <Typography.Title level={5} className="home-card__title">
               <span className="home-card__title-mark" aria-hidden="true" /> {EDUCATION_TITLE}
@@ -89,12 +103,16 @@ export const HomePage = () => {
               <span className="home-card__title-mark" aria-hidden="true" /> {CONTACT_TITLE}
             </Typography.Title>
             <div className="home-contact-row">
+              <Typography.Text className="home-contact-label">{CONTACT_LOCATION_LABEL}</Typography.Text>
+              <Typography.Text className="home-contact-value">{CONTACT_LOCATION_VALUE}</Typography.Text>
+            </div>
+            <div className="home-contact-row">
               <Typography.Text className="home-contact-label">{CONTACT_EMAIL_LABEL}</Typography.Text>
               <Typography.Text className="home-contact-value">{CONTACT_EMAIL_VALUE}</Typography.Text>
             </div>
             <div className="home-contact-row">
-              <Typography.Text className="home-contact-label">{CONTACT_LOCATION_LABEL}</Typography.Text>
-              <Typography.Text className="home-contact-value">{CONTACT_LOCATION_VALUE}</Typography.Text>
+              <Typography.Text className="home-contact-label">{CONTACT_PHONE_LABEL}</Typography.Text>
+              <Typography.Text className="home-contact-value">{CONTACT_PHONE_VALUE}</Typography.Text>
             </div>
           </Card>
         </aside>
@@ -103,11 +121,11 @@ export const HomePage = () => {
           <Card className="home-card home-hero">
             <div className="home-hero__top">
               <Typography.Title level={1} className="home-hero__title">
-                {HERO_TITLE_PREFIX} <span className="home-hero__title--accent">{HERO_TITLE_EMPHASIS}</span>
+                <span className="home-hero__title--accent">{HERO_TITLE_PREFIX}</span>
               </Typography.Title>
             </div>
             {!aboutMe ? <>
-              <Typography.Paragraph className="home-hero__body">{aboutMe}</Typography.Paragraph>
+              <Typography.Paragraph className="home-hero__body">{HERO_BODY}</Typography.Paragraph>
               <Typography.Paragraph className="home-hero__body home-hero__body--secondary">
                 {HERO_BODY_SECONDARY}
               </Typography.Paragraph>
@@ -133,7 +151,6 @@ export const HomePage = () => {
             <Typography.Title level={3} className="home-card__heading">
               {EXPERTISE_TITLE}
             </Typography.Title>
-            <Typography.Paragraph className="home-card__subtitle">{EXPERTISE_SUBTITLE}</Typography.Paragraph>
             <Row gutter={[16, 16]}>
               {EXPERTISE_ITEMS.map((item) => (
                 <Col xs={24} md={12} key={item.label}>
@@ -158,26 +175,7 @@ export const HomePage = () => {
               <Typography.Paragraph className="home-quote__text">{QUOTE_TEXT}</Typography.Paragraph>
             </div>
           </Card>
-
-          <Card className="home-card">
-            <Typography.Title level={3} className="home-card__heading">
-              {PROJECTS_TITLE}
-            </Typography.Title>
-            <Row gutter={[16, 16]}>
-              {PROJECTS.map((project) => (
-                <Col xs={24} md={12} key={project.name}>
-                  <div className="home-project">
-                    <img src={project.imageUrl} alt={project.name} className="home-project__thumb" />
-                    <Typography.Title level={5} className="home-project__name">
-                      {project.name}
-                    </Typography.Title>
-                    <Typography.Text className="home-muted">{project.subtitle}</Typography.Text>
-                    <Typography.Text className="home-project__cta">{project.cta}</Typography.Text>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </Card>
+          <GeminiChatSection />
         </section>
       </div>
     </div>

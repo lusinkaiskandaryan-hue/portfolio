@@ -9,4 +9,3 @@ export const experienceRoleClassName = 'home-experience__role';
 export const experiencePeriodClassName = 'home-experience__period';
 export const experienceCompanyClassName = 'home-experience__company';
 export const experienceSummaryClassName = 'home-experience__summary';
-export const experienceTagsClassName = 'home-experience__tags';
