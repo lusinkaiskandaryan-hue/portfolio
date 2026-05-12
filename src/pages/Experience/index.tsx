@@ -1,5 +1,6 @@
-import { GithubOutlined, LinkOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Row, Space, Tag, Typography } from 'antd';
+import { LinkOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Row, Space, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 import {
   EXPERIENCES,
   EXPERIENCE_SIDE_LABEL,
@@ -12,11 +13,13 @@ import {
   PAGE_SUBTITLE,
   PAGE_TITLE,
   PROJECTS,
-  REPOSITORY_TEXT,
-  PROJECTS_TITLE
+  PROJECTS_TITLE,
+  SELECTED_WORKS_CTA_BODY,
+  SELECTED_WORKS_CTA_BUTTON,
+  SELECTED_WORKS_CTA_TITLE_ACCENT,
+  SELECTED_WORKS_CTA_TITLE_PRIMARY,
 } from './consts';
-import { descriptionClassName, pageContainerClassName } from './styles';
-import { getProjectKey } from './utils';
+import { pageContainerClassName } from './styles';
 
 export const ExperiencePage = () => {
   return (
@@ -24,33 +27,6 @@ export const ExperiencePage = () => {
       <SectionTitle title={PAGE_TITLE} subtitle={PAGE_SUBTITLE} />
 
       <ExperienceSection title={EXPERIENCE_TITLE} sideLabel={EXPERIENCE_SIDE_LABEL} items={EXPERIENCES} />
-
-      <Row gutter={[16, 16]}>
-        {PROJECTS.map((project) => (
-          <Col xs={24} md={12} key={getProjectKey(project)}>
-            <Card title={project.name}>
-              <Space direction="vertical" size={12}>
-                <Typography.Paragraph className={descriptionClassName}>
-                  {project.description}
-                </Typography.Paragraph>
-                <Space wrap>
-                  {project.technologies.map((tech) => (
-                    <Tag key={tech}>{tech}</Tag>
-                  ))}
-                </Space>
-                <Space>
-                  <Button icon={<LinkOutlined />} href={project.demoUrl} target="_blank">
-                    {LIVE_DEMO_TEXT}
-                  </Button>
-                  <Button icon={<GithubOutlined />} href={project.repoUrl} target="_blank">
-                    {REPOSITORY_TEXT}
-                  </Button>
-                </Space>
-              </Space>
-            </Card>
-          </Col>
-        ))}
-      </Row>
 
       <Card className="projects-card">
         <Typography.Title level={3} className="projects-card__heading">
@@ -66,10 +42,26 @@ export const ExperiencePage = () => {
                 </Typography.Title>
                 <Typography.Text className="projects-muted">{project.subtitle}</Typography.Text>
                 <Typography.Text className="projects-project__cta">{project.cta}</Typography.Text>
+                {project.demoUrl && <Button icon={<LinkOutlined />} href={project.demoUrl} target="_blank">
+                  {LIVE_DEMO_TEXT}
+                </Button>}
               </div>
             </Col>
           ))}
         </Row>
+
+        <div className="experience-selected-cta" aria-labelledby="experience-selected-cta-heading">
+          <Typography.Title level={2} className="experience-selected-cta__title" id="experience-selected-cta-heading">
+            <span className="experience-selected-cta__title-line">{SELECTED_WORKS_CTA_TITLE_PRIMARY}</span>
+            <span className="experience-selected-cta__title-line experience-selected-cta__title-line--accent">
+              {SELECTED_WORKS_CTA_TITLE_ACCENT}
+            </span>
+          </Typography.Title>
+          <Typography.Paragraph className="experience-selected-cta__body">{SELECTED_WORKS_CTA_BODY}</Typography.Paragraph>
+          <Link to="/contact" className="experience-selected-cta__button">
+            {SELECTED_WORKS_CTA_BUTTON}
+          </Link>
+        </div>
       </Card>
     </Space>
   );

@@ -1,5 +1,7 @@
+import { useMemo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Card, Space, Typography } from 'antd';
-import { Link } from 'react-router-dom';
+
 import type { ExperienceSectionProps } from './consts';
 import {
   experienceCardClassName,
@@ -17,18 +19,26 @@ import {
 import { getExperienceKey } from './utils';
 
 export const ExperienceSection = ({ title, sideLabel, items, cardId }: ExperienceSectionProps) => {
+  const location = useLocation();
+  const workItems = useMemo(() => {
+    if (location.pathname === "/home") {
+      return items.slice(0, 2);
+    }
+    return items;
+  }, [location.pathname]);
+
   return (
     <Card id={cardId} className={experienceCardClassName}>
       <div className={experienceSectionHeadClassName}>
         <Typography.Title level={3} className={experienceSectionTitleClassName}>
           {title}
         </Typography.Title>
-        <Link to="/experience" className={`${experienceSectionMetaClassName} home-section-head__meta-link`}>
+        {location.pathname === "/home" && <Link to="/experience" className={`${experienceSectionMetaClassName} home-section-head__meta-link`}>
           {sideLabel}
-        </Link>
+        </Link>}
       </div>
       <Space direction="vertical" size={20} className={experienceListClassName}>
-        {items.map((item) => (
+        {workItems.map((item) => (
           <div className={experienceItemClassName} key={getExperienceKey(item)}>
             <div className={experienceHeadClassName}>
               <Typography.Title level={5} className={experienceRoleClassName}>

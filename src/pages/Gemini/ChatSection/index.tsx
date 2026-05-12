@@ -1,4 +1,4 @@
-import { useMemo, useState, type KeyboardEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { SendOutlined, UserOutlined } from '@ant-design/icons';
 
 import type { Chat } from '../utils';
@@ -12,6 +12,7 @@ const heroImageSrc = '/images/gemini-ai-chat-hero.png';
 export const GeminiChatSection = () => {
   const [entries, setEntries] = useState<Chat>(() => [...geminiChatDemo]);
   const [draft, setDraft] = useState('');
+  const threadRef = useRef<HTMLDivElement | null>(null);
 
   const awaitingReply = useMemo(() => entries.some((entry) => entry.answer === null), [entries]);
 
@@ -43,6 +44,14 @@ export const GeminiChatSection = () => {
 
   const heroClassName = awaitingReply ? 'gemini-chat__hero gemini-chat__hero--loading' : 'gemini-chat__hero';
 
+  useEffect(() => {
+    const thread = threadRef.current;
+    if (!thread) {
+      return;
+    }
+    thread.scrollTop = thread.scrollHeight;
+  }, [entries]);
+
   return (
     <section
       className={chatSectionClassName}
@@ -56,9 +65,10 @@ export const GeminiChatSection = () => {
               {geminiChatSectionCopy.title}
             </h2>
             <p className="gemini-chat__description">{geminiChatSectionCopy.description}</p>
+            <p className="gemini-chat__description">{geminiChatSectionCopy.badgeLabel}</p>
           </div>
 
-          <div className="gemini-chat__thread" role="log" aria-live="polite">
+          <div className="gemini-chat__thread" role="log" aria-live="polite" ref={threadRef}>
             {entries.map((entry) => (
               <div className="gemini-chat__exchange" key={entry.id}>
                 <div className="gemini-chat__row gemini-chat__row--user">

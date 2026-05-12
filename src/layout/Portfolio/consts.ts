@@ -13,7 +13,7 @@ export const FOOTER_TEXT = 'Lusine Iskandaryan. Built with React and TypeScript 
 
 export const NAV_ITEMS: NavItem[] = [
   { key: '/home', label: 'Home' },
-  { key: '/gemini', label: 'Gemini' },
+  // { key: '/gemini', label: 'Gemini' },
   { key: '/experience', label: 'Experience' },
   // { key: '/expertise', label: 'Expertise' },
   // { key: '/education', label: 'Education' },
