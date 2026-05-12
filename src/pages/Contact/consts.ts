@@ -6,11 +6,11 @@ export type ContactForm = {
   message: string;
 };
 
-export const SECTION_TITLE = 'Contact';
-export const SECTION_SUBTITLE = 'Let us discuss your next project.';
+export const SECTION_TITLE = 'Let’s Collaborate.';
+export const SECTION_SUBTITLE = 'Let’s Build Something Together.';
 export const NAME_PLACEHOLDER = 'Your name';
 export const EMAIL_PLACEHOLDER = 'you@email.com';
-export const MESSAGE_PLACEHOLDER = 'Tell me about your project...';
+export const MESSAGE_PLACEHOLDER = 'Write your message here…';
 export const SUBMIT_BUTTON_TEXT = 'Send message';
 export const FOOTER_TEXT =
   'You can also add links to Telegram, LinkedIn, Upwork, or your preferred contact channel.';

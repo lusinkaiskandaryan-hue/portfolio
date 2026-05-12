@@ -18,16 +18,30 @@ export const EXPERIENCE_SIDE_LABEL = 'Detailed History';
 export const EXPERIENCES: ExperienceItem[] = [
   {
     role: 'Senior Front-End Engineer',
-    company: 'Swiftech',
+    company: 'SWIFTECH',
     period: '2025 - PRESENT',
     summary:
-      'Delivering high-performance complex web applications with real-time data streaming and state management using React, Redux, TypeScript, Socket.IO, Ant Design.',
+      'Delivering high-performance complex web applications with real-time data streaming and state management.',
   },
   {
-    role: 'Front-End Engineer',
+    role: 'Mid-Level Front-End Engineer',
     company: 'VOLO',
     period: '2019 - 2025',
     summary:
-      'Delivered high-performance web applications, wrote Clean, Maintainable Code, worked with juniors and interns.',
+      'Delivered high-performance web applications, wrote clean, maintainable code, worked with juniors and interns.',
   },
+  {
+    role: 'JuniorFront-End Engineer',
+    company: 'EFUSOFT',
+    period: '2018 - 2019',
+    summary:
+      'Wrote clean, maintainable code, debugged and troubleshot application issues, collaborated with designers and back-end developers.',
+  },
+  {
+    role: 'Intern Front-End Engineer',
+    company: 'FAMBOX',
+    period: '2019 - 2025',
+    summary:
+      'Wrote clean code, debugged, collaborated with designers and back-end developers.',
+  }
 ];

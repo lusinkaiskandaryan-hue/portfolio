@@ -39,7 +39,6 @@ import { getAboutMe } from './CVText/cvText';
 
 export const HomePage = () => {
   const aboutMe = getAboutMe();
-  console.log('aboutMe', aboutMe);
   return (
     <div className={homePageClassName}>
       <div className="home-page__grid">
