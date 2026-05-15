@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Card, Input, Space, Button, InputRef } from 'antd';
 
 import { pageContainerClassName } from './styles';
@@ -7,12 +7,13 @@ import { generateVideo } from './utils';
 export const DIDPage = () => {
 
   const promptRef = useRef<InputRef>(null);
-  const [videoUrl, setVideoUrl] = useState("");
+  // const [videoUrl, setVideoUrl] = useState("");
 
   const handleClick = async () => {
     const text = promptRef.current?.input?.value || "";
     const video = await generateVideo(text);
-    setVideoUrl(video || "");
+    console.log(video);
+    // setVideoUrl(video || "");
   };
 
   return (
