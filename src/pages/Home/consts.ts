@@ -13,7 +13,7 @@ export type ProjectItem = {
 export const PROFILE_NAME = 'Lusine Iskandaryan';
 export const PROFILE_ROLE = 'SOFTWARE ENGINEER';
 export const PROFILE_INITIALS = 'EC';
-export const PROFILE_IMAGE_URL = '/images/profile-reference.png';
+export const PROFILE_IMAGE_URL = '/images/profile.png';
 
 export const PERSONAL_INFO = [
   { label: 'Birth Year', value: '1985' },
