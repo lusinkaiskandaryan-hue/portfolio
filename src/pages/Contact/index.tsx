@@ -13,7 +13,12 @@ import {
   SUBMIT_BUTTON_TEXT,
   type ContactForm,
 } from './consts';
-import { pageContainerClassName } from './styles';
+import {
+  contactCardClassName,
+  footerTextClassName,
+  pageContainerClassName,
+  submitButtonClassName,
+} from './styles';
 import { handleContactSubmit } from './utils';
 
 export const ContactPage = () => {
@@ -23,7 +28,7 @@ export const ContactPage = () => {
     <Space direction="vertical" size={24} className={pageContainerClassName}>
       <SectionTitle title={SECTION_TITLE} subtitle={SECTION_SUBTITLE} />
 
-      <Card>
+      <Card className={contactCardClassName}>
         <Form form={form} layout="vertical" onFinish={(values) => handleContactSubmit(values, form)}>
           <Form.Item name="name" label="Name" rules={NAME_RULES}>
             <Input placeholder={NAME_PLACEHOLDER} />
@@ -37,13 +42,13 @@ export const ContactPage = () => {
             <Input.TextArea rows={5} placeholder={MESSAGE_PLACEHOLDER} />
           </Form.Item>
 
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" className={submitButtonClassName}>
             {SUBMIT_BUTTON_TEXT}
           </Button>
         </Form>
       </Card>
 
-      <Typography.Text type="secondary">{FOOTER_TEXT}</Typography.Text>
+      <Typography.Text className={footerTextClassName}>{FOOTER_TEXT}</Typography.Text>
     </Space>
   );
 };

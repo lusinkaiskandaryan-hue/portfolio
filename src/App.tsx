@@ -5,6 +5,7 @@ import { HomePage } from './pages/Home';
 import { GeminiPage } from './pages/Gemini';
 import { NotFoundPage } from './pages/NotFound';
 import { ExperiencePage } from './pages/Experience';
+import { DIDPage } from './pages/DID';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route index element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/gemini" element={<GeminiPage />} />
+        <Route path="/did" element={<DIDPage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Route>

@@ -632,6 +632,50 @@ body {
   width: 100%;
 }
 
+.contact-page__card .ant-form-item-label > label {
+  color: var(--text-primary) !important;
+}
+
+.contact-page .ant-input,
+.contact-page textarea.ant-input {
+  background: rgba(7, 18, 48, 0.78) !important;
+  border-color: var(--border-soft) !important;
+  color: var(--text-primary) !important;
+}
+
+.contact-page .ant-input::placeholder,
+.contact-page textarea.ant-input::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.contact-page .ant-input:hover,
+.contact-page textarea.ant-input:hover,
+.contact-page .ant-input:focus,
+.contact-page textarea.ant-input:focus {
+  border-color: rgba(155, 231, 207, 0.45) !important;
+}
+
+.contact-page__footer {
+  color: var(--text-muted) !important;
+}
+
+.contact-page__submit {
+  height: 42px;
+  padding-inline: 20px !important;
+  border-radius: 10px !important;
+  background: #9ce8cf !important;
+  color: #031329 !important;
+  border: none !important;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contact-page__submit:hover {
+  background: #9ce8cf !important;
+  color: #031329 !important;
+  filter: brightness(1.06);
+}
+
 /* Gemini page — AI assistant chat preview */
 .gemini-chat {
   width: 100%;
