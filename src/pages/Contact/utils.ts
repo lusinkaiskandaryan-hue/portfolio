@@ -1,7 +1,6 @@
 import type { ContactForm } from './consts';
-import { sendContactMessage } from '../../api/emailJS';
+import { sendContactMessage } from '../../api/emailjs';
 
-export const handleContactSubmit = (values: ContactForm): void => {
- sendContactMessage(values);
-};
+export const handleContactSubmit = (values: ContactForm): Promise<void> =>
+  sendContactMessage(values);
 
