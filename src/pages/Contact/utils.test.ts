@@ -1,23 +1,20 @@
-import type { FormInstance } from 'antd';
+import { sendContactMessage } from '../../api/emailjs';
 import type { ContactForm } from './consts';
 import { handleContactSubmit } from './utils';
 
+jest.mock('../../api/emailjs', () => ({
+  sendContactMessage: jest.fn().mockResolvedValue(undefined),
+}));
+
 describe('handleContactSubmit', () => {
-  it('logs the payload and resets the form', () => {
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-    const resetFields = jest.fn();
-    const form = { resetFields } as unknown as FormInstance<ContactForm>;
+  it('sends the contact message', async () => {
     const values: ContactForm = {
-      name: 'Jane Doe',
-      email: 'jane@example.com',
+      fromName: 'Jane Doe',
       message: 'Hello there',
     };
 
-    handleContactSubmit(values, form);
+    await handleContactSubmit(values);
 
-    expect(consoleSpy).toHaveBeenCalledWith('Contact form payload:', values);
-    expect(resetFields).toHaveBeenCalledTimes(1);
-
-    consoleSpy.mockRestore();
+    expect(sendContactMessage).toHaveBeenCalledWith(values);
   });
 });
