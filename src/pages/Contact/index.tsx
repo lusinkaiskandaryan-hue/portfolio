@@ -1,8 +1,8 @@
-import { Button, Card, Form, Input, Space, Typography } from 'antd';
+import { useState } from 'react';
+import { App, Button, Card, Form, Input, Space, Typography } from 'antd';
+
 import { SectionTitle } from '../../components/SectionTitle';
 import {
-  EMAIL_PLACEHOLDER,
-  EMAIL_RULES,
   FOOTER_TEXT,
   MESSAGE_PLACEHOLDER,
   MESSAGE_RULES,
@@ -21,28 +21,65 @@ import {
 } from './styles';
 import { handleContactSubmit } from './utils';
 
+type ContactFormValues = {
+
+  fromName: string;
+
+  message: string;
+
+};
+
+
 export const ContactPage = () => {
   const [form] = Form.useForm<ContactForm>();
+  const { message } = App.useApp();
+
+  const [loading, setLoading] = useState(false);
+
+  const onFinish = async (values: ContactFormValues) => {
+
+    setLoading(true);
+
+    try {
+
+      await handleContactSubmit(values);
+
+      form.resetFields();
+
+      message.success("Message sent.");
+
+    } catch (error) {
+
+      message.error(
+
+        error instanceof Error ? error.message : "Could not send message.",
+
+      );
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  };
+
 
   return (
     <Space direction="vertical" size={24} className={pageContainerClassName}>
       <SectionTitle title={SECTION_TITLE} subtitle={SECTION_SUBTITLE} />
 
       <Card className={contactCardClassName}>
-        <Form form={form} layout="vertical" onFinish={(values) => handleContactSubmit(values, form)}>
-          <Form.Item name="name" label="Name" rules={NAME_RULES}>
+        <Form form={form} layout="vertical" onFinish={onFinish}>
+          <Form.Item name="fromName" label="Name" rules={NAME_RULES}>
             <Input placeholder={NAME_PLACEHOLDER} />
-          </Form.Item>
-
-          <Form.Item name="email" label="Email" rules={EMAIL_RULES}>
-            <Input placeholder={EMAIL_PLACEHOLDER} />
           </Form.Item>
 
           <Form.Item name="message" label="Message" rules={MESSAGE_RULES}>
             <Input.TextArea rows={5} placeholder={MESSAGE_PLACEHOLDER} />
           </Form.Item>
 
-          <Button type="primary" htmlType="submit" className={submitButtonClassName}>
+          <Button type="primary" htmlType="submit" className={submitButtonClassName} loading={loading}>
             {SUBMIT_BUTTON_TEXT}
           </Button>
         </Form>

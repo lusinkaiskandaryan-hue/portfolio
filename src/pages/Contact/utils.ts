@@ -1,8 +1,7 @@
-import type { FormInstance } from 'antd';
 import type { ContactForm } from './consts';
+import { sendContactMessage } from '../../api/emailJS';
 
-export const handleContactSubmit = (values: ContactForm, form: FormInstance<ContactForm>): void => {
-  // Placeholder submission handler; connect to backend/email service later.
-  console.log('Contact form payload:', values);
-  form.resetFields();
+export const handleContactSubmit = (values: ContactForm): void => {
+ sendContactMessage(values);
 };
+
