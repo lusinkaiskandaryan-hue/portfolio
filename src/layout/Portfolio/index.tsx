@@ -1,6 +1,8 @@
 import { Button, Layout, Menu, Space, Typography } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
+  CV_PDF_FILENAME,
+  CV_PDF_PATH,
   DOWNLOAD_BUTTON_TEXT,
   FOOTER_LINKS,
   FOOTER_TEXT,
@@ -38,7 +40,12 @@ export const PortfolioLayout = () => {
             onClick={({ key }) => navigate(key)}
             className={navMenuClassName}
           />
-          <Button type="primary" className={headerDownloadClassName}>
+          <Button
+            type="primary"
+            className={headerDownloadClassName}
+            href={CV_PDF_PATH}
+            download={CV_PDF_FILENAME}
+          >
             {DOWNLOAD_BUTTON_TEXT}
           </Button>
         </div>

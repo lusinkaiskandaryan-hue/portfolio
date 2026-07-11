@@ -14,6 +14,15 @@ test.describe('Portfolio', () => {
     ).toBeVisible();
   });
 
+  test('download PDF button links to the CV file', async ({ page }) => {
+    await page.goto('/home');
+    const downloadButton = page.getByRole('link', { name: 'Download PDF' });
+
+    await expect(downloadButton).toBeVisible();
+    await expect(downloadButton).toHaveAttribute('href', '/Lusine-Iskandaryan-CV.pdf');
+    await expect(downloadButton).toHaveAttribute('download', 'Lusine-Iskandaryan-CV.pdf');
+  });
+
   test('navigates to contact page', async ({ page }) => {
     await page.goto('/home');
     await page.getByRole('menuitem', { name: 'Contact' }).click();

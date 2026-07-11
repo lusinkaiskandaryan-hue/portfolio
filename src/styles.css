@@ -181,6 +181,16 @@ body {
   gap: 14px;
 }
 
+.home-sidebar > .home-card:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-sidebar > .home-card:last-child .ant-card-body {
+  flex: 1;
+}
+
 .home-card,
 .projects-card {
   border-radius: 16px !important;

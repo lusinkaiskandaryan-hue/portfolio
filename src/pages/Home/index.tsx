@@ -5,7 +5,6 @@ import {
   EXPERIENCE_TITLE,
 } from '../../components/ExperienceSection/consts';
 import { ExperienceSection } from '../../components/ExperienceSection';
-import { GeminiChatSection } from '../Gemini/ChatSection';
 import {
   CONTACT_EMAIL_LABEL,
   CONTACT_EMAIL_VALUE,
@@ -36,6 +35,7 @@ import {
 import { homePageClassName, profileAvatarClassName } from './styles';
 import { formatExpertisePercent, mapSkillToTagKey } from './utils';
 import { getAboutMe } from './CVText/cvText';
+import { DIDPage } from '../DID';
 
 export const HomePage = () => {
   const aboutMe = getAboutMe();
@@ -174,7 +174,13 @@ export const HomePage = () => {
               <Typography.Paragraph className="home-quote__text">{QUOTE_TEXT}</Typography.Paragraph>
             </div>
           </Card>
-          <GeminiChatSection />
+          <Card id="did" className="home-card home-card--expertise">
+          <div className="home-quote">
+            <DIDPage />
+          </div>
+          </Card>
+          {/* <DIDPage /> */}
+          {/* <GeminiChatSection /> */}
         </section>
       </div>
     </div>
